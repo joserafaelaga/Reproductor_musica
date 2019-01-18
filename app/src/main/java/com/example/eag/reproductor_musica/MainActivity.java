@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
             if(vectormp[posicion].isPlaying()){ //Si está reproduciendo la detenemos
 
                 vectormp[posicion].stop();
-                
+
                 colocarCanciones();
 
                 //Aumentamos posición para pasar de canción
