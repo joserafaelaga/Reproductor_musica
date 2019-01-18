@@ -28,16 +28,17 @@ public class MainActivity extends AppCompatActivity {
         play_pause = (Button) findViewById(R.id.play_pause);
         btn_repetir = (Button) findViewById(R.id.repetir);
 
+        //Colamos las canciones en nuestro vertormp
         colocarCanciones();
 
     }
 
     public void playPause(View view){
-        if(vectormp[posicion].isPlaying()){
+        if(vectormp[posicion].isPlaying()){ //Si está sonando la pausamos
             vectormp[posicion].pause();
             play_pause.setBackgroundResource(R.drawable.reproducir);
             Toast.makeText(this, "Pausada", Toast.LENGTH_SHORT).show();
-        }else{
+        }else{ //Si no está reproduciendo comenzamos a reproducir
             vectormp[posicion].start();
             play_pause.setBackgroundResource(R.drawable.pausa);
             Toast.makeText(this, "Reproduciendo...", Toast.LENGTH_SHORT).show();
@@ -49,4 +50,31 @@ public class MainActivity extends AppCompatActivity {
         vectormp[1] = MediaPlayer.create(this, R.raw.juego);
         vectormp[2] = MediaPlayer.create(this, R.raw.vikingos);
     }
+
+    public void stop(View view){
+
+        if(vectormp[posicion] != null){
+
+            //Detenemos la reproducción
+            vectormp[posicion].stop();
+
+            //Volvemos a colocar las canciones
+            colocarCanciones();
+
+            //Iniciamos desde la posición cero
+            posicion = 0;
+
+            //Volvemos a color el botón de "play"
+            play_pause.setBackgroundResource(R.drawable.reproducir);
+
+            //Ponemos la primera carátula
+            img_cancion.setImageResource(R.drawable.portada1);
+
+            Toast.makeText(this,"Está detenida", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+
 }

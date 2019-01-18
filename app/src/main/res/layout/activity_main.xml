@@ -43,7 +43,8 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/detener"
-            android:contentDescription="@string/botones" />
+            android:contentDescription="@string/botones"
+            android:onClick="stop" />
 
         <Button
             android:id="@+id/play_pause"
@@ -52,7 +53,8 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/reproducir"
-            android:contentDescription="@string/botones" />
+            android:contentDescription="@string/botones"
+            android:onClick="playPause" />
 
         <Button
             android:id="@+id/repetir"
