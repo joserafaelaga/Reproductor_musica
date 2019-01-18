@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Reproductor_Musica</string>
+    <string name="caratula">Carátula canción</string>
+    <string name="botones">Botones</string>
+</resources>
