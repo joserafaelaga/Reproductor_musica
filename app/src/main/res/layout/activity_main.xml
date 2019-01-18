@@ -63,7 +63,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@drawable/no_repetir" />
+            android:background="@drawable/no_repetir"
+            android:onClick="repetir" />
 
         <Button
             android:id="@+id/button"

@@ -115,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
             if(vectormp[posicion].isPlaying()){ //Si está reproduciendo la detenemos
 
                 vectormp[posicion].stop();
+                
+                colocarCanciones();
 
                 //Aumentamos posición para pasar de canción
                 posicion --;
@@ -130,6 +132,28 @@ public class MainActivity extends AppCompatActivity {
 
         }else{
             Toast.makeText(this, "No hay más canciones", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void repetir(View view){
+        if(repetir == true){ //Si está repitiéndose que no se repita
+            btn_repetir.setBackgroundResource(R.drawable.no_repetir);
+
+            vectormp[posicion].setLooping(false);
+
+            repetir = false;
+
+            Toast.makeText(this, "No repetir canción", Toast.LENGTH_SHORT).show();
+
+        }else{
+            btn_repetir.setBackgroundResource(R.drawable.repetir);
+
+            vectormp[posicion].setLooping(true);
+
+            repetir = true;
+
+            Toast.makeText(this, "La canción se repetirá", Toast.LENGTH_SHORT).show();
+
         }
     }
 
