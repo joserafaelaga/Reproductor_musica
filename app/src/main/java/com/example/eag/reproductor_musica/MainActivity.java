@@ -73,8 +73,43 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"Está detenida", Toast.LENGTH_SHORT).show();
 
         }
-
     }
+
+    private void cambioPortadas(){
+        if(posicion == 0){
+            img_cancion.setImageResource(R.drawable.portada1);
+        }else if(posicion == 1){
+            img_cancion.setImageResource(R.drawable.portada2);
+        }else if(posicion == 2){
+            img_cancion.setImageResource(R.drawable.portada3);
+        }
+    }
+
+    public void siguiente(View view){
+        if(posicion < vectormp.length -1){ //Hay canciones para pasar a la siguiente
+
+            if(vectormp[posicion].isPlaying()){ //Si está reproduciendo la detenemos
+
+                vectormp[posicion].stop();
+
+                //Aumentamos posición para pasar de canción
+                posicion ++;
+
+                vectormp[posicion].start();
+
+            }else{
+                posicion ++;
+            }
+
+            //Cambiamos la portada
+            cambioPortadas();
+
+        }else{
+            Toast.makeText(this, "No hay más canciones", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 
 
 }
